@@ -23,8 +23,9 @@ class weiboMonitor():
         }
         # self.uid = ['6395178860', '1906286443']
         aa = urlencode.urlencode('社会队树洞')
-        bb = urlencode.urlencode('虚拟机')
-        self.uid = [aa, bb]
+        bb = urlencode.urlencode('社会队小道消息')
+        cc = urlencode.urlencode('社会人衣装')
+        self.uid = [aa, bb,cc]
 
     # 获取访问连接
     def getweiboInfo(self):
