@@ -2,5 +2,4 @@ pycryptodome
 requests
 lxml
 django
-urllib
 quote
