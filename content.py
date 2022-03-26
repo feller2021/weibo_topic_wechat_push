@@ -86,16 +86,41 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     print(timedelay)
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
-    headers = {'Content-Type': 'application/json'}
+    # headers = {'Content-Type': 'application/json'}
     fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + detalurl + ' ' + '\n' + '------------------------' + '\n' + braa + '\n' + '------------------------'
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
-    repp = requests.post(url=imgpost, data=postdata, headers=headers)
+    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
     print('----===----')
-    print(repp)
+    # print(repp)
     print('----===----')
+    # 11111111111111111111111111111
+    huanghang = "<br />"
+    tupianxianshi = '<meta name="referrer" content="no-referrer" />'
+    tu = htmljiexi.getpiclast(idd)
+    content = fasongneir + huanghang + tupianxianshi + tu
+    content = content.replace('"', '\"')
+    content = content.replace('\ "', '\"')
+    url = 'http://wxpusher.zjiecode.com/api/send/message'
+    HEADERS = {'Content-Type': 'application/json'}
+    FormData = {
+        "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
+        "content": content,
+        "summary": f"@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay,
+        "contentType": 2,
 
+        "topicIds": [
+
+        ],
+        "uids": [
+            "UID_noWsar4x3r0zd4WqjCaoD5CIX9Xi"
+        ],
+        "url": ""
+    }
+    res = requests.post(url=url, json=FormData, headers=HEADERS)
+    print(res.text)
+# 11111111111111111111111111111
 #
 # if __name__ == '__main__':
 #     wbcontent(1)
