@@ -11,6 +11,8 @@ from django.template.defaultfilters import striptags
 import requests, json, sys
 import re
 import wbtxt
+import shipindizhi
+import bofangqi
 
 
 def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
@@ -96,7 +98,12 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     # headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '<br>'+'消息类型：普通话题推送'+ '<br>' + format_time + ' ' + '来自 ' + sourcel + ' ' + '<br>' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '<br>' + '▷' + picnum2 + '张图' + ' ' + '<br>' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '<br>' + '▷' + '推送时间：' + tzshj + ' ' + '<br>' + '▷' + '延时推送：' + timedelay + ' ' + '<br>' + '▷' + '原博链接：' + lianjie2 + ' ' + '<br>' + '------------------------' + '<br>' + braa + '<br>' + '------------------------'
+    if isycsp != "":
+        bofanshipin = bofangqi.bofang(idd)
+        bofanshipin = str(bofanshipin)
+    else:
+        bofanshipin = ''
+    fasongneir = '@' + fasname + '<br>' + '消息类型：普通话题推送' + '<br>' + format_time + ' ' + '来自 ' + sourcel + ' ' + '<br>' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '<br>' + '▷' + picnum2 + '张图' + ' ' + '<br>' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '<br>' + '▷' + '推送时间：' + tzshj + ' ' + '<br>' + '▷' + '延时推送：' + timedelay + ' ' + '<br>' + '▷' + '原博链接：' + lianjie2 + ' ' + '<br>' + '------------------------' + '<br>' + braa + '<br>' + '------------------------' + '<br>' + bofanshipin
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
@@ -116,7 +123,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     FormData = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
         "content": content,
-        "summary": f"[话题]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' +  '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay,
+        "summary": f"[话题]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay,
         "contentType": 2,
 
         "topicIds": [
