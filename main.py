@@ -118,6 +118,8 @@ class weiboMonitor():
                             createtime = j['mblog']['created_at']
                             sourcel = j['mblog']['source']
                             fasname = j['mblog']['user']['screen_name']
+                            # 推送到iPhonepushdeer
+                            htmljiexi.iphonepushdeer(fasname,idd)
                             try:
                                 deit = j['mblog']['edit_config']['edited']
                             except:
