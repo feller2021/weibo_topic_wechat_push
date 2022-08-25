@@ -21,7 +21,7 @@ header = {
 # zhuanfa 4669870106477736
 # kuanzhuan  4669812238457985
 # pic_num=''global
-imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
+# imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
 headers = {'Content-Type': 'application/json'}
 
 
@@ -33,7 +33,7 @@ def getpiclast(idd):
     res.encoding = 'utf-8'
     root = etree.HTML(res.content)
 
-    gameList = root.xpath("/html/body/script[1]/text()")
+    gameList = root.xpath("/html/body/script[2]/text()")
 
     for i in gameList:
 
@@ -91,7 +91,7 @@ def mun(idd):
     res.encoding = 'utf-8'
     root = etree.HTML(res.content)
 
-    gameList = root.xpath("/html/body/script[1]/text()")
+    gameList = root.xpath("/html/body/script[2]/text()")
 
     for i in gameList:
 
@@ -142,7 +142,7 @@ def isyuanchuang(idd):
     res.encoding = 'utf-8'
     root = etree.HTML(res.content)
 
-    gameList = root.xpath("/html/body/script[1]/text()")
+    gameList = root.xpath("/html/body/script[2]/text()")
 
     for i in gameList:
 
