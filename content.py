@@ -146,7 +146,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         FormData = {
             "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
             "content": content,
-            "summary": f"[超话]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp,
+            "summary": f"[话题]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp,
             "contentType": 2,
 
             "topicIds": [
