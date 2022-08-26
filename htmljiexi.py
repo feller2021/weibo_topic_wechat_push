@@ -253,7 +253,7 @@ def iphonepushdeer(fasname,idd):
     pushdeer = PushDeer(pushkey=pushkey)
     
     print(tpp4)
-        if tpp4=='':
+    if tpp4=='':
         print("无图片")
         return
     else:
