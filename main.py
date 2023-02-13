@@ -10,6 +10,7 @@ import content
 import htmljiexi
 from urllib.parse import quote
 import urlencode
+import traceback
 
 
 class weiboMonitor():
@@ -58,8 +59,9 @@ class weiboMonitor():
 
 
         except Exception as e:
-            self.echoMsg('Error', e)
-            sys.exit()
+            print(traceback.format_exc())
+            # self.echoMsg('Error', e)
+            # sys.exit()
 
     #
     # # 收集已经发布动态的id
