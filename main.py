@@ -60,6 +60,7 @@ class weiboMonitor():
 
         except Exception as e:
             print(traceback.format_exc())
+            pass
             # self.echoMsg('Error', e)
             # sys.exit()
 
