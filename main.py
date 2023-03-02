@@ -38,7 +38,7 @@ class weiboMonitor():
 
                 # userInfo = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s' % (i)
                 userInfo = 'https://m.weibo.cn/api/container/getIndex?containerid=231522type%s&page_type=searchall' % (i)
-                res = requests.get(userInfo, headers=self.reqHeaders)
+                res = requests.get(userInfo, headers=self.reqHeaders,stream=True, verify=False,timeout=30)
                 # testt=res.text
                 d = res.json()['data']['cards']
                 # d=str(d)
@@ -103,7 +103,7 @@ class weiboMonitor():
                 # userInfo = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s' % (i)
                 userInfo = 'https://m.weibo.cn/api/container/getIndex?containerid=231522type%s&page_type=searchall' % (
                     i)
-                res = requests.get(userInfo, headers=self.reqHeaders)
+                res = requests.get(userInfo, headers=self.reqHeaders,stream=True, verify=False,timeout=30)
                 # testt=res.text
                 d = res.json()['data']['cards']
                 for j in d:
