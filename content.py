@@ -136,6 +136,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     }
     res = requests.post(url=url, json=FormData, headers=HEADERS,stream=True, verify=False)
     print(res.text)
+    time.sleep(4)
     res = res.text
     jsonobj = json.loads(res)
     toCntPercent = jsonobj['code']
